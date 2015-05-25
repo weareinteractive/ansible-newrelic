@@ -1,0 +1,13 @@
+---
+
+- name: Configuring module
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    owner: "{{ newrelic_user }}"
+    group: "{{ newrelic_user }}"
+    mode: "0640"
+  notify: restart newrelic
+  with_items:
+    - "etc/newrelic/nrsysmond.cfg"
+
