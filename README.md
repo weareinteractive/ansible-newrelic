@@ -1,7 +1,7 @@
 # Ansible Newrelic Role
 
 [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-newrelic.svg)](https://travis-ci.org/weareinteractive/ansible-newrelic)
-[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.newrelic-blue.svg)](https://galaxy.ansible.com/list#/roles/)
+[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.newrelic-blue.svg)](https://galaxy.ansible.com/list#/roles/3917)
 [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-newrelic.svg)](https://github.com/weareinteractive/ansible-newrelic)
 [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-newrelic.svg)](https://github.com/weareinteractive/ansible-newrelic)
 
