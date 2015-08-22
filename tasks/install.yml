@@ -7,6 +7,7 @@
 
 - name: Adding APT key
   apt_key:
+    id: 548C16BF
     url: https://download.newrelic.com/548C16BF.gpg
 
 - name: Add APT repository

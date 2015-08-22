@@ -80,8 +80,8 @@ These are the handlers that are defined in `handlers/main.yml`.
 ## Testing
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-newrelic.git
-$ cd ansible-newrelic
+$ git clone https://github.com/weareinteractive/ansible-newrelic.git franklinkim.newrelic
+$ cd franklinkim.newrelic
 $ vagrant up
 ```
 
