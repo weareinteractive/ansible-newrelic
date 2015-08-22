@@ -12,6 +12,10 @@ Vagrant.configure("2") do |config|
   config.vm.define 'precise' do |instance|
     instance.vm.box = 'ubuntu/precise64'
   end
+ 
+  config.vm.define 'centos7' do |instance|
+    instance.vm.box = 'geerlingguy/centos7'
+  end
 
   # View the documentation for the provider you're using for more
   # information on available options.
