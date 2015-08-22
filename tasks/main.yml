@@ -5,7 +5,7 @@
     msg: "newrelic_license_key has not been defined"
   when: newrelic_license_key|default(False) == False
 
-- include: install-Debian.yml
+- include: install_debian.yml
   when: ansible_os_family == 'Debian'
   tags:
     - monitoring
@@ -13,7 +13,7 @@
     - install
     - newrelic-install
 
-- include: install-RedHat.yml
+- include: install_redhat.yml
   when: ansible_os_family == 'RedHat'
   tags:
     - monitoring
