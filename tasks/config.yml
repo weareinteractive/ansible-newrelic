@@ -7,7 +7,10 @@
     owner: "{{ newrelic_user }}"
     group: "{{ newrelic_user }}"
     mode: "0640"
-  notify: restart newrelic
+  register: configure
   with_items:
     - "etc/newrelic/nrsysmond.cfg"
 
+- name: Fixed env path
+  replace: dest=/etc/init.d/newrelic-sysmond regexp='^(.*)"env -i(.*)$' replace='\1"/usr/bin/env -i\2'
+  notify: restart newrelic
