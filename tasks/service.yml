@@ -5,3 +5,7 @@
     name: newrelic-sysmond
     state: "{{ newrelic_service_state }}"
     enabled: "{{ newrelic_service_enabled }}"
+
+- name: Add newrelic user to docker group
+  user: name=newrelic append=yes groups=docker
+  when: not newrelic_disable_docker
