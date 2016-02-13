@@ -1,6 +1,4 @@
 ---
-# For more information about default variables see:
-# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
 #
 # newrelic_license_key: yourkey
 

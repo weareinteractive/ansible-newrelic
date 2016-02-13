@@ -1,5 +1,4 @@
 ---
-
 galaxy_info:
   author: franklin
   company: We Are Interactive
@@ -79,9 +78,9 @@ galaxy_info:
   #    versions:
   #      - all
   #      - any
-  #  - name: Debian
-  #    versions:
-  #      - all
+    - name: Debian
+      versions:
+        - all
   #      - etch
   #      - lenny
   #      - squeeze
@@ -90,20 +89,14 @@ galaxy_info:
   # Below are all categories currently available. Just as with
   # the platforms above, uncomment those that apply to your role.
   #
-  categories:
-  #  - cloud
-  #  - cloud:ec2
-  #  - cloud:gce
-  #  - cloud:rax
-  #  - database
-  #  - database:nosql
-  #  - database:sql
-  #  - development
+  # The number of tags imported by Galaxy is limited to 20,
+  # and tag values containing non-alphanumeric characters will be ignored.
+  # Tag values containing a : will be split into multiple tags.
+  # The tag cloud:ec2, for example, will become two tags: cloud and ec2.
+  #
+  galaxy_tags:
     - monitoring
-  #  - networking
-  #  - packaging
-  #  - system
-  #  - web
+    - newrelic
 dependencies: []
   # List your role dependencies here, one per line. Only
   # dependencies available via galaxy should be listed here.
