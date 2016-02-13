@@ -44,16 +44,20 @@ Here is a list of all the default variables for this role, which are also availa
 #
 # newrelic_license_key: yourkey
 
-# user name
+# User name
 newrelic_user: newrelic
+# User group
+newrelic_group: newrelic
+# User groups to append to user
+newrelic_groups: []
 # Name of the file where the server monitor will store it's log messages.
 newrelic_logfile: /var/log/newrelic/nrsysmond.log
 # Level of detail you want in the log file
 newrelic_loglevel: info
 # Set to true to disable NFS client statistics gathering.
-newrelic_disable_nfs: no
+newrelic_disable_nfs: yes
 # Set to true to disable Docker container statistics gathering.
-newrelic_disable_docker: no
+newrelic_disable_docker: yes
 # start on boot
 newrelic_service_enabled: yes
 # current state: started, stopped
@@ -67,9 +71,6 @@ These are the handlers that are defined in `handlers/main.yml`.
 
 ```yaml
 ---
-# For more information about handlers see:
-# http://www.ansibleworks.com/docs/playbooks.html#handlers-running-operations-on-change
-#
 
 - name: restart newrelic
   service:
