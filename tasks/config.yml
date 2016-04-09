@@ -14,6 +14,6 @@
 - name: Configuring user groups
   user:
     name: "{{ newrelic_user }}"
-    groups: "{{ newrelic_groups }}"
+    groups: "{{ newrelic_groups|join(',') }}"
     append: yes
   when: not newrelic_disable_docker
