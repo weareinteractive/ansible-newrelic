@@ -1,3 +1,13 @@
+<a name="1.2.1"></a>
+### 1.2.1 (2016-04-10)
+
+
+#### Bug Fixes
+
+*   default groups breaks install when docker monitoring is enabled ([3e507b30](https://github.com/weareinteractive/ansible-newrelic/commit/3e507b3080fa8040a3659577f1bdc25c3d97508a))
+
+
+
 <a name="1.2.0"></a>
 ## 1.2.0 (2016-02-13)
 
