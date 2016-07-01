@@ -62,7 +62,7 @@ newrelic_disable_docker: yes
 newrelic_service_enabled: yes
 # current state: started, stopped
 newrelic_service_state: started
-# use default hostname, set a valute to override the default hostname
+# use default hostname, set a value to override the default hostname
 newrelic_override_hostname: ~
 
 ```
