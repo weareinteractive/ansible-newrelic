@@ -62,6 +62,8 @@ newrelic_disable_docker: yes
 newrelic_service_enabled: yes
 # current state: started, stopped
 newrelic_service_state: started
+# use default hostname, set a value to override the default hostname
+newrelic_override_hostname: ~
 
 ```
 
@@ -99,16 +101,17 @@ This is an example playbook:
 
 ```
 
+
 ## Testing
 
 ```shell
 $ git clone https://github.com/weareinteractive/ansible-newrelic.git
 $ cd ansible-newrelic
-$ vagrant up
+$ make test
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
+In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
