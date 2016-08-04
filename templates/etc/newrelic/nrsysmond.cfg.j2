@@ -186,7 +186,11 @@ logfile={{ newrelic_logfile }}
 #            labels = Environment:Production;DataCenter:EastUS;
 # Default: none
 #
+{% if newrelic_labels is defined %}
+labels={{ newrelic_labels }}
+{% else %}
 #labels=label_type:label_value
+{% endif %}
 
 #
 # Option : disable_nfs
