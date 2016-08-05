@@ -33,7 +33,7 @@ $ git clone https://github.com/weareinteractive/ansible-newrelic.git franklinkim
 
 ## Dependencies
 
-* Ansible >= 1.9
+* Ansible >= 2.0
 
 ## Variables
 
@@ -64,6 +64,8 @@ newrelic_service_enabled: yes
 newrelic_service_state: started
 # use default hostname, set a value to override the default hostname
 newrelic_override_hostname: ~
+# A series of label_type/label_value pairings: label_type:label_value
+newrelic_labels: ~
 
 ```
 
