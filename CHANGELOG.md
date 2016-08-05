@@ -1,3 +1,13 @@
+<a name="1.4.0"></a>
+## 1.4.0 (2016-08-05)
+
+
+#### Features
+
+*   add label settings ([169d3867](https://github.com/weareinteractive/ansible-newrelic/commit/169d386710aba0d7d1397cb68ef7f8426d1fac80))
+
+
+
 <a name="1.3.0"></a>
 ## 1.3.0 (2016-07-04)
 
