@@ -1,3 +1,13 @@
+<a name="1.4.1"></a>
+### 1.4.1 (2016-09-20)
+
+
+#### Bug Fixes
+
+*   remove duplicate newrelic_license_key ([036d2777](https://github.com/weareinteractive/ansible-newrelic/commit/036d27779b7db47b9fb06b9a983d759d2ad196bf))
+
+
+
 <a name="1.4.0"></a>
 ## 1.4.0 (2016-08-05)
 
