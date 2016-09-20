@@ -97,7 +97,6 @@ This is an example playbook:
   roles:
     - franklinkim.newrelic
   vars:
-    newrelic_license_key: yes
     newrelic_service_state: started
     newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
 
