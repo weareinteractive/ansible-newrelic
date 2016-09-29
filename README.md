@@ -93,7 +93,7 @@ This is an example playbook:
 ---
 
 - hosts: all
-  sudo: yes
+  become: yes
   roles:
     - franklinkim.newrelic
   vars:
