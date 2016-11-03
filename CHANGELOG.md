@@ -1,3 +1,13 @@
+<a name="1.4.3"></a>
+### 1.4.3 (2016-11-03)
+
+
+#### Bug Fixes
+
+*   fix readme badge url ([a143bf3e](https://github.com/weareinteractive/ansible-newrelic/commit/a143bf3ee48ee07fa3657186763d857d00083b56))
+
+
+
 <a name="1.4.2"></a>
 ### 1.4.2 (2016-09-30)
 
