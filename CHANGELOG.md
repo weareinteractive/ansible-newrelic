@@ -1,3 +1,13 @@
+<a name="1.5.0"></a>
+## 1.5.0 (2016-11-10)
+
+
+#### Features
+
+*   add proxy options ([d8c80eaa](https://github.com/weareinteractive/ansible-newrelic/commit/d8c80eaac222078c918be6ff80ce94f4d444510b))
+
+
+
 <a name="1.4.3"></a>
 ### 1.4.3 (2016-11-03)
 

@@ -53,6 +53,9 @@ logfile={{ newrelic_logfile }}
 # Default: none (use a direct connection)
 #
 #proxy=
+{% if newrelic_proxy %}
+proxy={{ newrelic_proxy }}
+{% endif %}
 
 #
 # Setting: ssl
