@@ -24,3 +24,5 @@ newrelic_service_state: started
 newrelic_override_hostname: ~
 # A series of label_type/label_value pairings: label_type:label_value
 newrelic_labels: ~
+# proxy server to use
+#newrelic_proxy: proxy-host:8080
