@@ -8,6 +8,16 @@
 # in this file.
 #
 
+{% if newrelic_docker_mem_fix %}
+cgroup_style=0
+{% endif %}
+#
+# Workaround for an issue where new relic cannot get container memory stats.
+#
+# http://stackoverflow.com/questions/36788770/newrelic-does-not-display-cpu-memory-usage-for-dockers-container
+#
+
+
 #
 # Option : license_key
 # Value  : 40-character hexadecimal string provided by New Relic. This is
@@ -99,7 +109,7 @@ logfile={{ newrelic_logfile }}
 #          group. Please consult the Docker web site for details and security
 #          implications.
 # Default: empty
-docker_connection={{ newrelic_docker_socket }}
+#docker_connection=
 
 #
 # Setting: docker_cert_path
