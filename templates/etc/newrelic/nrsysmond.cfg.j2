@@ -9,6 +9,7 @@
 #
 
 {% if newrelic_docker_mem_fix %}
+# Fixes issue with docker memory reporting
 cgroup_style=0
 {% endif %}
 #
@@ -16,7 +17,6 @@ cgroup_style=0
 #
 # http://stackoverflow.com/questions/36788770/newrelic-does-not-display-cpu-memory-usage-for-dockers-container
 #
-
 
 #
 # Option : license_key
