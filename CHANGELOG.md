@@ -1,3 +1,13 @@
+<a name="1.6.0"></a>
+## 1.6.0 (2016-11-11)
+
+
+#### Features
+
+*   add `cgroup_style` option to config ([fd806272](https://github.com/weareinteractive/ansible-newrelic/commit/fd80627235dca4c6dad2b4edaa13e3d5ab64174d))
+
+
+
 <a name="1.5.0"></a>
 ## 1.5.0 (2016-11-10)
 
