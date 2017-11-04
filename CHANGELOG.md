@@ -1,3 +1,13 @@
+<a name="1.7.0"></a>
+## 1.7.0 (2017-11-04)
+
+
+#### Features
+
+*   remove default hostname ([8808db40](https://github.com/weareinteractive/ansible-newrelic/commit/8808db40d26ce00e5b9a2390ad1fde7fc5359ca5))
+
+
+
 <a name="1.6.0"></a>
 ## 1.6.0 (2016-11-11)
 
