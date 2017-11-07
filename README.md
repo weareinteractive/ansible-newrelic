@@ -50,7 +50,7 @@ newrelic_user: newrelic
 newrelic_group: newrelic
 # User groups to append to user
 newrelic_groups: []
-# Name of the file where the server monitor will store it's log messages.
+# Name of the file where the server monitor will store its log messages.
 newrelic_logfile: /var/log/newrelic/nrsysmond.log
 # Level of detail you want in the log file
 newrelic_loglevel: info
