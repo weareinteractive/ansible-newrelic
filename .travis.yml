@@ -1,10 +1,24 @@
 ---
-
-language: ruby
 sudo: required
 services:
   - docker
-install:
-  - docker pull franklinkim/ansible:ubuntu-trusty
+env:
+  global:
+    - role: franklinkim.newrelic
+  matrix:
+    - distribution: ubuntu16.04
+    - distribution: ubuntu14.04
+    - distribution: debian9
+    - distribution: debian8
+    - distribution: centos7
+before_install:
+  - docker pull williamyeh/ansible:${distribution}
 script:
-  - docker run -v $(pwd):/opt/ansible franklinkim/ansible:ubuntu-trusty tests/run.sh
+  - docker run -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v ${PWD}:/etc/ansible/roles/${role}:ro --name ${distribution} williamyeh/ansible:${distribution} tail -f /dev/null
+  - docker exec ${distribution} ansible-galaxy install weareinteractive.apt franklinkim.openssl franklinkim.htpasswd
+  - docker exec ${distribution} env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v -i 'localhost,' -c local /etc/ansible/roles/${role}/tests/main.yml --syntax-check
+  - docker exec ${distribution} env ANSIBLE_FORCE_COLOR=1 ansible-playbook -vvvv -i 'localhost,' -c local /etc/ansible/roles/${role}/tests/main.yml
+  - docker rm -f ${distribution}
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
