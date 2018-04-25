@@ -1,24 +1,57 @@
 ---
 sudo: required
+language: python
 services:
   - docker
 env:
   global:
     - role: franklinkim.newrelic
   matrix:
-    - distribution: ubuntu16.04
-    - distribution: ubuntu14.04
-    - distribution: debian9
-    - distribution: debian8
-    - distribution: centos7
+    - distribution: Ubuntu
+      distribution_version: xenial
+      init: /lib/systemd/systemd
+      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    - distribution: Ubuntu
+      distribution_version: trusty
+      init: /sbin/init
+      run_opts: ""
+    - distribution: Debian
+      distribution_version: stretch
+      init: /lib/systemd/systemd
+      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    - distribution: Debian
+      distribution_version: jessie
+      init: /lib/systemd/systemd
+      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    - distribution: EL
+      distribution_version: "7"
+      init: /usr/lib/systemd/systemd
+      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+
 before_install:
-  - docker pull williamyeh/ansible:${distribution}
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - docker pull ansiblecheck/ansiblecheck:"${distribution,,}"-"${distribution_version}"
+
 script:
-  - docker run -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v ${PWD}:/etc/ansible/roles/${role}:ro --name ${distribution} williamyeh/ansible:${distribution} tail -f /dev/null
-  - docker exec ${distribution} ansible-galaxy install weareinteractive.apt franklinkim.openssl franklinkim.htpasswd
-  - docker exec ${distribution} env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v -i 'localhost,' -c local /etc/ansible/roles/${role}/tests/main.yml --syntax-check
-  - docker exec ${distribution} env ANSIBLE_FORCE_COLOR=1 ansible-playbook -vvvv -i 'localhost,' -c local /etc/ansible/roles/${role}/tests/main.yml
-  - docker rm -f ${distribution}
+  - container_id=$(mktemp)
+  # Start The Built Container In The Background
+  - 'docker run --detach --volume="${PWD}":/etc/ansible/roles/${role}:ro ${run_opts} ansiblecheck/ansiblecheck:"${distribution,,}"-"${distribution_version}" "${init}" > "${container_id}"'
+
+  # Ansible syntax check.
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/${role}/tests/main.yml --syntax-check'
+
+  # Test role.
+  - 'docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/${role}/tests/main.yml'
+
+  # Test Idempotence
+  - idempotence=$(mktemp)
+  - docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/${role}/tests/main.yml | tee -a ${idempotence}
+  - >
+    tail ${idempotence}
+    | grep -q 'failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
