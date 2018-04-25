@@ -1,3 +1,14 @@
+<a name="1.7.2"></a>
+### 1.7.2 (2018-04-25)
+
+
+#### Features
+
+*   update apt on dependency installation ([af5a4208](https://github.com/weareinteractive/ansible-newrelic/commit/af5a42085a23f6aa90d73d597a6f772e2eed4559))
+*   update depricated include module ([b00a529f](https://github.com/weareinteractive/ansible-newrelic/commit/b00a529fb329868218626e40760d6b801d6a13dc))
+
+
+
 <a name="1.7.1"></a>
 ### 1.7.1 (2017-11-07)
 
