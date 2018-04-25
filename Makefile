@@ -6,20 +6,20 @@ TEST_SYNTAX=ansible-playbook -v -i 'localhost,' -c local $(ROLE_PATH)/tests/main
 TEST_PLAYBOOK=ansible-playbook -vvvv -i 'localhost,' -c local $(ROLE_PATH)/tests/main.yml
 TEST_CMD=$(TEST_VERSION); $(TEST_SYNTAX); $(TEST_PLAYBOOK); $(TEST_PLAYBOOK)
 
-test_ubuntu16.04: dist=ubuntu-16.04
-test_ubuntu16.04: test
+ubuntu16.04: dist=ubuntu-16.04
+ubuntu16.04: .run
 
-test_ubuntu14.04: dist=ubuntu-14.04
-test_ubuntu14.04: test
+ubuntu14.04: dist=ubuntu-14.04
+ubuntu14.04: .run
 
-test_debian9: dist=debian-9
-test_debian9: test
+debian9: dist=debian-9
+debian9: .run
 
-test_debian8: dist=debian-8
-test_debian8: test
+debian8: dist=debian-8
+debian8: .run
 
-test_centos7: dist=el-7
-test_centos7: test
+centos7: dist=el-7
+centos7: .run
 
-test:
+.run:
 	docker run -it --rm -v $(PWD):$(ROLE_PATH) ansiblecheck/ansiblecheck:$(dist) /bin/bash -c "$(TEST_CMD)"
