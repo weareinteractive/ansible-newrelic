@@ -14,7 +14,7 @@ env:
     - distribution: Ubuntu
       distribution_version: "16.04"
       init: /sbin/init
-      run_opts: ""
+      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
     - distribution: Debian
       distribution_version: "9"
       init: /lib/systemd/systemd

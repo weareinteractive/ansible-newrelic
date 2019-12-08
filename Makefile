@@ -19,9 +19,6 @@ ubuntu18.04: .run
 ubuntu16.04: dist=ubuntu-16.04
 ubuntu16.04: .run
 
-ubuntu14.04: dist=ubuntu-14.04
-ubuntu14.04: .run
-
 debian9: dist=debian-9
 debian9: .run
 
